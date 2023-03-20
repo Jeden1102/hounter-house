@@ -1,30 +1,48 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <TheNavigation />
+  <router-view />
 </template>
-
+<script setup lang="ts">
+import TheNavigation from "@/components/TheNavigation.vue";
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+.container-wide {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 10px 0;
+  @media (min-width: 768px) {
+    width: calc(90% - 20px);
+    padding: 40px 0;
   }
+  @media (min-width: 1024px) {
+    width: calc(80% - 20px);
+  }
+  @media (min-width: 1400px) {
+    width: calc(80% - 20px);
+    padding: 40px 0;
+    max-width: 1400px;
+  }
+}
+.container {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 10px 0;
+  @media (min-width: 768px) {
+    width: calc(80% - 20px);
+    padding: 40px 0;
+  }
+  @media (min-width: 1024px) {
+    width: calc(70% - 20px);
+  }
+  @media (min-width: 1400px) {
+    width: calc(70% - 20px);
+    padding: 40px 0;
+    max-width: 1200px;
+  }
+}
+#app {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
 }
 </style>

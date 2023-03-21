@@ -1,9 +1,47 @@
 <template>
-  <div></div>
+  <div class="base-input__wrapper">
+    <input type="text" placeholder="Search for the location you want!" />
+    <BaseButton
+      :url="'https://google/com'"
+      :variant="'success'"
+      :icon="'fa-solid fa-chevron-right'"
+      :iconFirst="false"
+      >Search</BaseButton
+    >
+  </div>
 </template>
 
 <script setup lang="ts">
+import BaseButton from "./BaseButton.vue";
 </script>
 
-<style scoped>
+<style scoped lang="scss" >
+.base-input {
+  &__wrapper {
+    position: relative;
+    width: fit-content;
+    ::v-deep .base-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translate(0, -50%);
+      height: 24px;
+    }
+
+    input {
+      padding: 4px 150px 4px 24px;
+      background: #ffffff;
+      /* Neutral / 300 */
+      height: 56px;
+      border: 1px solid #e0e3eb;
+      border-radius: 32px;
+      &::placeholder {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: #888b97;
+      }
+    }
+  }
+}
 </style>

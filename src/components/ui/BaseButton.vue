@@ -48,6 +48,7 @@ const props = defineProps<{
   border-radius: 32px;
   display: flex;
   width: fit-content;
+  align-items: center;
   cursor: pointer;
   opacity: 0.95;
   transition: 0.2s;
@@ -56,8 +57,8 @@ const props = defineProps<{
     flex-direction: row;
   }
   svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
   &:hover {
     opacity: 1;

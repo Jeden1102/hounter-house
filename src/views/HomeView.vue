@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <HomeHero />
     <BaseButton
       :url="'https://google/com'"
       :variant="'primary'"
@@ -13,10 +14,18 @@
     <BaseButton :component="'about'" :variant="'error'">Inner Link</BaseButton>
     <BaseButton :variant="'transparent'">Just a button</BaseButton>
     <BaseBadge :variant="'primary'">Test Badge</BaseBadge>
+    <BaseHeading :variant="'primary'">Our recommendation</BaseHeading>
+    <BaseHeading :variant="'secondary'">Feature house</BaseHeading>
+    <BaseAvatar :variant="'sm'" :url="'profile1.jpg'" />
+    <BaseInput />
   </div>
 </template>
 
 <script setup lang="ts">
 import BaseButton from "../components/ui/BaseButton.vue";
 import BaseBadge from "../components/ui/BaseBadge.vue";
+import BaseHeading from "../components/ui/BaseHeading.vue";
+import BaseAvatar from "../components/ui/BaseAvatar.vue";
+import BaseInput from "../components/ui/BaseInput.vue";
+import HomeHero from "../components/Home/HomeHero.vue";
 </script>

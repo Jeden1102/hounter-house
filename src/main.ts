@@ -3,10 +3,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHouse, faCalendarDays, faCircleInfo, faTicket, faArrowRightFromBracket, faUser, faFire, faLocationDot, faX, faChevronRight, faStar, faCheck, faPhone, faPlus, faMinus, faTriangleExclamation, faChartLine, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faCalendarDays, faCircleInfo, faTicket, faArrowRightFromBracket, faUser, faFire, faLocationDot, faX, faChevronRight, faChevronDown, faStar, faCheck, faPhone, faPlus, faMinus, faTriangleExclamation, faChartLine, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faHouse, faTicket, faGear, faStar, faArrowRightFromBracket, faTriangleExclamation, faCalendarDays, faChartLine,faChevronRight, faCircleInfo, faUser, faFire, faLocationDot, faX, faCheck, faPhone, faPlus, faMinus);
+library.add(faHouse,faChevronDown, faTicket, faGear, faStar, faArrowRightFromBracket, faTriangleExclamation, faCalendarDays, faChartLine,faChevronRight, faCircleInfo, faUser, faFire, faLocationDot, faX, faCheck, faPhone, faPlus, faMinus);
 
 const app = createApp(App)
 app.use(router)

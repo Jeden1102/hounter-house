@@ -14,6 +14,7 @@ import TheNavigation from "@/components/Layout/TheNavigation.vue";
   font-size: 16px;
   color: $font-color;
   font-weight: 500;
+  overflow-x: hidden;
 }
 .view {
   padding-top: 100px;

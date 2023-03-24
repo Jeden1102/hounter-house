@@ -1,6 +1,6 @@
 <template>
   <div class="base-input__wrapper">
-    <input type="text" placeholder="Search for the location you want!" />
+    <input type="text" placeholder="Search a place!" />
     <BaseButton
       :url="'https://google/com'"
       :variant="'success'"
@@ -31,7 +31,6 @@ import BaseButton from "./BaseButton.vue";
     input {
       padding: 4px 150px 4px 24px;
       background: #ffffff;
-      /* Neutral / 300 */
       height: 56px;
       border: 1px solid #e0e3eb;
       border-radius: 32px;

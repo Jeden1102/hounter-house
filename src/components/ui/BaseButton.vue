@@ -53,6 +53,7 @@ const props = defineProps<{
   opacity: 0.95;
   transition: 0.2s;
   flex-direction: row-reverse;
+
   &.icon-first {
     flex-direction: row;
   }
@@ -62,6 +63,7 @@ const props = defineProps<{
   }
   &:hover {
     opacity: 1;
+    transform: translateY(-2px);
   }
   &.success-light {
     background: $light-green;

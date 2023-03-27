@@ -36,7 +36,7 @@ import BaseButton from "./BaseButton.vue";
       border-radius: 32px;
       &::placeholder {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
         line-height: 22px;
         color: #888b97;
       }

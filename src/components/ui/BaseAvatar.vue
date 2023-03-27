@@ -1,17 +1,28 @@
 <template>
-  <img :src="getImageUrl(url)" alt="" :class="variant" />
+  <img
+    :src="getImageUrl(url)"
+    alt="Avatar icon"
+    :width="imgSize"
+    :height="imgSize"
+    :class="variant"
+  />
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 
 function getImageUrl(url: string) {
   return require(`@/assets/avatars/${url}`);
 }
 const props = defineProps<{
-  variant?: string;
+  variant: string;
   url: string;
 }>();
+
+const imgSize = computed(() => {
+  const maping = { sm: 30, md: 40, lg: 50 };
+  return maping[props.variant as keyof typeof maping];
+});
 </script>
 
 <style lang="scss" scoped>

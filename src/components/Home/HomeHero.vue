@@ -179,13 +179,13 @@ onMounted(() => {
       transform: translate(20px, -100px);
     }
     &--img {
-      width: 100%;
       max-width: 553px;
       z-index: -1;
       @media (min-width: 992px) {
         max-width: unset;
         min-width: 553px;
         min-height: 700px;
+        width: 100%;
       }
     }
   }

@@ -1,25 +1,43 @@
 <template>
   <a
-    :class="['base-btn', variant, { 'icon-first': iconFirst }]"
+    :class="[
+      'base-btn',
+      variant,
+      { 'icon-first': iconFirst },
+      { 'icon-only': iconOnly },
+    ]"
     v-if="url"
     :type="type"
     :href="url"
     target="_blank"
+    @click="emitClick"
   >
     <font-awesome-icon :icon="icon" />
     <span><slot></slot></span>
   </a>
   <router-link
-    :class="['base-btn', variant, { 'icon-first': iconFirst }]"
+    :class="[
+      'base-btn',
+      variant,
+      { 'icon-first': iconFirst },
+      { 'icon-only': iconOnly },
+    ]"
     v-if="component"
     :to="{ name: component }"
+    @click="emitClick"
   >
     <font-awesome-icon :icon="icon" />
     <span><slot></slot></span>
   </router-link>
   <button
-    :class="['base-btn', variant, { 'icon-first': iconFirst }]"
+    :class="[
+      'base-btn',
+      variant,
+      { 'icon-first': iconFirst },
+      { 'icon-only': iconOnly },
+    ]"
     v-if="!url && !component"
+    @click="emitClick"
   >
     <font-awesome-icon :icon="icon" />
     <span><slot></slot></span>
@@ -27,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, defineEmits } from "vue";
 
 const props = defineProps<{
   variant?: string;
@@ -37,7 +55,14 @@ const props = defineProps<{
   type?: string;
   component?: string;
   iconFirst?: boolean;
+  iconOnly?: boolean;
 }>();
+
+const emits = defineEmits(["button-click"]);
+
+const emitClick = () => {
+  emits("button-click");
+};
 </script>
 
 <style scoped lang="scss">
@@ -53,9 +78,14 @@ const props = defineProps<{
   opacity: 0.95;
   transition: 0.2s;
   flex-direction: row-reverse;
+  width: fit-content;
+  height: fit-content;
 
   &.icon-first {
     flex-direction: row;
+  }
+  &.icon-only {
+    gap: 0;
   }
   svg {
     width: 16px;
@@ -76,6 +106,7 @@ const props = defineProps<{
   &.base {
     background: white;
     color: #888b97;
+    border: 1px solid rgba(136, 139, 151, 0.4);
   }
   &.transparent {
     background: rgba(255, 255, 255, 0.1);

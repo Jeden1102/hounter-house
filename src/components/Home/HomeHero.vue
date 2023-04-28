@@ -9,7 +9,14 @@
       <BaseInput />
     </div>
     <div class="hero__right">
-      <img src="@/assets/home/hero.png" alt="" />
+      <img
+        rel="preload"
+        class="hero__right--img"
+        src="@/assets/home/hero.webp"
+        alt="White building with sky cloud background."
+        width="553"
+        height="520"
+      />
       <div class="carousel">
         <carousel
           :breakpoints="breakpoints"
@@ -56,12 +63,10 @@
 import BaseInput from "../ui/BaseInput.vue";
 import BaseAvatar from "../ui/BaseAvatar.vue";
 import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import { Carousel, Slide } from "vue3-carousel";
 import { onMounted, ref } from "vue";
 const myCarousel = ref(null);
 const breakpoints = {
-  // 700px and up
-  // 1024 and up
   1024: {
     itemsToShow: 2.5,
     snapAlign: "start",
@@ -69,6 +74,7 @@ const breakpoints = {
 };
 onMounted(() => {
   setTimeout(() => {
+    // Carousel display fix workaround.
     window.dispatchEvent(new Event("resize"));
   }, 1000);
 });
@@ -83,7 +89,7 @@ onMounted(() => {
     width: 900px;
     height: 900px;
     position: absolute;
-    left: -450px;
+    left: -500px;
     top: -500px;
     border-radius: 50%;
     z-index: -1;
@@ -113,7 +119,7 @@ onMounted(() => {
     max-width: 600px;
     h1 {
       font-weight: 600;
-      font-size: 40px;
+      font-size: 2.5rem;
       line-height: 50px;
       text-transform: capitalize;
       span {
@@ -156,21 +162,13 @@ onMounted(() => {
         .description {
           h6 {
             font-weight: 600;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 24px;
-            /* identical to box height, or 150% */
-
-            /* MRT App / Headline */
-
             color: #1b1c57;
           }
           p {
-            font-size: 12px;
+            font-size: 0.75rem;
             line-height: 20px;
-            /* identical to box height, or 167% */
-
-            /* MRT App/Subheadline */
-
             color: #68799f;
           }
         }
@@ -180,12 +178,14 @@ onMounted(() => {
     @media (min-width: 992px) {
       transform: translate(20px, -100px);
     }
-    img {
-      width: 100%;
+    &--img {
       max-width: 553px;
       z-index: -1;
       @media (min-width: 992px) {
         max-width: unset;
+        min-width: 553px;
+        min-height: 700px;
+        width: 100%;
       }
     }
   }

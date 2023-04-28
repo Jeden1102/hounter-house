@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <HomeHero />
+    <HomeFeatured />
+    <!--
     <BaseButton
       :url="'https://google/com'"
       :variant="'primary'"
@@ -18,6 +20,7 @@
     <BaseHeading :variant="'secondary'">Feature house</BaseHeading>
     <BaseAvatar :variant="'sm'" :url="'profile1.jpg'" />
     <BaseInput />
+    -->
   </div>
 </template>
 
@@ -28,4 +31,5 @@ import BaseHeading from "../components/ui/BaseHeading.vue";
 import BaseAvatar from "../components/ui/BaseAvatar.vue";
 import BaseInput from "../components/ui/BaseInput.vue";
 import HomeHero from "../components/Home/HomeHero.vue";
+import HomeFeatured from "../components/Home/HomeFeatured.vue";
 </script>

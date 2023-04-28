@@ -1,5 +1,5 @@
 <template>
-  <div :class="['base-badge', variant]">
+  <div :class="['base-badge', variant, { 'icon-first': iconFirst }]">
     <font-awesome-icon :icon="icon" />
     <span><slot></slot></span>
   </div>

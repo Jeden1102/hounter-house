@@ -21,7 +21,7 @@ const props = defineProps<{
 }
 .secondary {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 18px;
   text-transform: capitalize;
   color: #f59e0b;

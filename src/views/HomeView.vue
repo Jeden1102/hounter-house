@@ -2,6 +2,7 @@
   <div class="home">
     <HomeHero />
     <HomeFeatured />
+    <HomeProduct />
     <!--
     <BaseButton
       :url="'https://google/com'"
@@ -32,4 +33,5 @@ import BaseAvatar from "../components/ui/BaseAvatar.vue";
 import BaseInput from "../components/ui/BaseInput.vue";
 import HomeHero from "../components/Home/HomeHero.vue";
 import HomeFeatured from "../components/Home/HomeFeatured.vue";
+import HomeProduct from "../components/Home/HomeProduct.vue";
 </script>

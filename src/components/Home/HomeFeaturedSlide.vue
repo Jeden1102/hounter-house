@@ -63,7 +63,7 @@ function getImageUrl(url: string) {
     position: relative;
     border-radius: 25px;
     overflow: hidden;
-    width: 340px;
+    width: 320px;
     height: 382px;
     .description {
       position: absolute;

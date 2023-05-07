@@ -1,18 +1,24 @@
 <template>
   <div class="featured">
     <div class="image">
-      <BaseBadge :variant="'error'" :icon="'fa-solid fa-fire'" :iconFirst="true"
-        >Popular</BaseBadge
+      <BaseBadge
+        :variant="offer.badgeType"
+        :icon="offer.badgeIcon"
+        :iconFirst="true"
+        >{{ offer.badgeText }}</BaseBadge
       >
-      <img src="../../assets/home/home-featured-1.png" alt="" />
+      <p class="description">
+        {{ offer.description }}
+      </p>
+      <img :src="getImageUrl(offer.img)" alt="Home view" loading="lazy" />
     </div>
-    <h4>Roselands House</h4>
-    <p>35.0000.000$</p>
+    <h4>{{ offer.title }}</h4>
+    <p>{{ offer.price }}</p>
     <div class="person">
-      <BaseAvatar url="profile1.jpg" variant="lg" />
+      <BaseAvatar :url="offer.avatarImg" variant="lg" />
       <div class="person__details">
-        <p>Diana Rosell</p>
-        <span>Oklahoma, Minessota</span>
+        <p>{{ offer.name }}</p>
+        <span>{{ offer.place }}</span>
       </div>
     </div>
   </div>
@@ -21,6 +27,14 @@
 <script setup lang="ts">
 import BaseAvatar from "../ui/BaseAvatar.vue";
 import BaseBadge from "../ui/BaseBadge.vue";
+import { defineProps } from "vue";
+
+const props = defineProps<{
+  offer: object;
+}>();
+function getImageUrl(url: string) {
+  return require(`@/assets/home/${url}`);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -29,12 +43,38 @@ import BaseBadge from "../ui/BaseBadge.vue";
   display: flex;
   flex-direction: column;
   gap: 8px;
+  &:hover {
+    .image {
+      img {
+        filter: blur(3px) brightness(0.5);
+        transition: 0.3s;
+      }
+      .description {
+        bottom: 20px;
+        transition: 0.3s;
+        color: white;
+      }
+    }
+  }
   @media (min-width: 768px) {
     margin-top: 32px;
   }
   .image {
     position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 340px;
+    height: 382px;
+    .description {
+      position: absolute;
+      left: 0;
+      transition: 0.3s;
+      bottom: -300px;
+      padding: 15px;
+      z-index: 2;
+    }
     img {
+      transition: 0.3s;
       margin-bottom: 16px;
     }
     .base-badge {

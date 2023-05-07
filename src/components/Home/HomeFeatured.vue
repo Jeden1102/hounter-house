@@ -53,8 +53,12 @@
           :transition="500"
           :gap="20"
         >
-          <slide v-for="slide in slides" :key="slide" class="carousel__slide">
-            <HomeFeaturedSlide />
+          <slide
+            v-for="offer in filteredOffers"
+            :key="offer"
+            class="carousel__slide"
+          >
+            <HomeFeaturedSlide :offer="offer" />
           </slide>
         </carousel>
       </div>
@@ -66,9 +70,10 @@
 import BaseHeading from "../ui/BaseHeading.vue";
 import BaseButton from "../ui/BaseButton.vue";
 import HomeFeaturedSlide from "./HomeFeaturedSlide.vue";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
+import axios from "axios";
 const myCarousel = ref(null);
 const breakpoints = {
   1400: {
@@ -84,8 +89,16 @@ const breakpoints = {
     snapAlign: "start",
   },
 };
+const offers = ref([]);
+
+const filteredOffers = computed(() => {
+  if (activeCategory.value === "") return offers.value;
+  return offers.value.filter(
+    (offer) => offer.category === activeCategory.value
+  );
+});
 const slides = 6;
-const activeCategory = ref("House");
+const activeCategory = ref("");
 function getButtonVariant(variant: string) {
   if (variant === activeCategory.value) {
     return "success-light";
@@ -101,6 +114,17 @@ function changeSlide(direction: number) {
     }
   }
 }
+onMounted(() => {
+  axios
+    .get("/offers.json")
+    .then((res) => {
+      console.log(res);
+      offers.value = res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 </script>
 
 <style scoped lang="scss">

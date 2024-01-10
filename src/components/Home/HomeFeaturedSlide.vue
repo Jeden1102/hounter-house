@@ -1,12 +1,7 @@
 <template>
   <div class="featured">
     <div class="image">
-      <BaseBadge
-        :variant="offer.badgeType"
-        :icon="offer.badgeIcon"
-        :iconFirst="true"
-        >{{ offer.badgeText }}</BaseBadge
-      >
+      <BaseBadge :variant="offer.badgeType" :icon="offer.badgeIcon" :iconFirst="true">{{ offer.badgeText }}</BaseBadge>
       <p class="description">
         {{ offer.description }}
       </p>
@@ -28,9 +23,9 @@
 import BaseAvatar from "../ui/BaseAvatar.vue";
 import BaseBadge from "../ui/BaseBadge.vue";
 import { defineProps } from "vue";
-
-const props = defineProps<{
-  offer: object;
+import { Offer } from '../../types/intefaces';
+defineProps<{
+  offer: Offer;
 }>();
 function getImageUrl(url: string) {
   return require(`@/assets/home/${url}`);
@@ -43,12 +38,14 @@ function getImageUrl(url: string) {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
   &:hover {
     .image {
       img {
         filter: blur(3px) brightness(0.5);
         transition: 0.3s;
       }
+
       .description {
         bottom: 20px;
         transition: 0.3s;
@@ -56,15 +53,18 @@ function getImageUrl(url: string) {
       }
     }
   }
+
   @media (min-width: 768px) {
     margin-top: 32px;
   }
+
   .image {
     position: relative;
     border-radius: 25px;
     overflow: hidden;
     width: 320px;
     height: 382px;
+
     .description {
       position: absolute;
       left: 0;
@@ -73,10 +73,12 @@ function getImageUrl(url: string) {
       padding: 15px;
       z-index: 2;
     }
+
     img {
       transition: 0.3s;
       margin-bottom: 16px;
     }
+
     .base-badge {
       position: absolute;
       left: 15px;
@@ -90,15 +92,17 @@ function getImageUrl(url: string) {
     line-height: 32px;
     color: #0e1735;
   }
+
   p {
     font-weight: 300;
   }
+
   .person {
     display: flex;
     align-items: center;
     gap: 12px;
-    &__details {
-    }
+
+    &__details {}
   }
 }
 </style>

@@ -9,7 +9,7 @@
     v-if="url"
     :type="type"
     :href="url"
-    target="_blank"
+    :target="target ? target : '_blank'"
     @click="emitClick"
   >
     <font-awesome-icon :icon="icon" />
@@ -56,6 +56,7 @@ const props = defineProps<{
   component?: string;
   iconFirst?: boolean;
   iconOnly?: boolean;
+  target?: string;
 }>();
 
 const emits = defineEmits(["button-click"]);

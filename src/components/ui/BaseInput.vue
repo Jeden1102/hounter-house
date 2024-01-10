@@ -2,10 +2,11 @@
   <div class="base-input__wrapper">
     <input type="text" placeholder="Search a place!" />
     <BaseButton
-      :url="'https://google/com'"
+      url="#"
       :variant="'success'"
       :icon="'fa-solid fa-chevron-right'"
       :iconFirst="false"
+      target="_self"
       >Search</BaseButton
     >
   </div>

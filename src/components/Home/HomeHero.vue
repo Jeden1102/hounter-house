@@ -84,6 +84,7 @@ onMounted(() => {
 .hero {
   position: relative;
   padding: 0 20px;
+  margin-top: -100px;
   &::before {
     content: "";
     width: 900px;

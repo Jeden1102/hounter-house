@@ -47,7 +47,7 @@
       <div class="carousel">
         <carousel
           :breakpoints="breakpoints"
-          ref="myCarousel"
+          ref="featuredCarousel"
           :items-to-show="1"
           :wrapAround="true"
           :transition="500"
@@ -74,7 +74,7 @@ import { ref, computed, onMounted } from "vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
 import axios from "axios";
-const myCarousel = ref(null);
+const featuredCarousel = ref(null);
 const breakpoints = {
   1400: {
     itemsToShow: 3.5,
@@ -106,11 +106,11 @@ function getButtonVariant(variant: string) {
   return "base";
 }
 function changeSlide(direction: number) {
-  if (myCarousel.value) {
+  if (featuredCarousel.value) {
     if (direction) {
-      myCarousel.value.next();
+      featuredCarousel.value.next();
     } else {
-      myCarousel.value.prev();
+      featuredCarousel.value.prev();
     }
   }
 }

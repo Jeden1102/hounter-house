@@ -36,14 +36,7 @@
       </div>
     </div>
     <div class="home-product__gallery">
-      <Carousel
-        id="gallery"
-        :items-to-show="1"
-        v-model="currentSlide"
-        :wrapAround="false"
-        :transition="500"
-        :gap="20"
-      >
+      <Carousel id="gallery" :items-to-show="1" v-model="currentSlide" :wrapAround="false" :transition="500" :gap="20">
         <Slide v-for="slide in slides" :key="slide">
           <div class="carousel__item">
             <template v-if="checkExtension(slide) === 'jpg'">
@@ -58,25 +51,18 @@
         </Slide>
       </Carousel>
 
-      <Carousel
-        id="thumbnails"
-        :items-to-show="3"
-        v-model="currentSlide"
-        ref="carousel"
-        :wrapAround="false"
-        :transition="500"
-        :gap="20"
-      >
+      <Carousel id="thumbnails" :items-to-show="3" v-model="currentSlide" ref="carousel" :wrapAround="true"
+        :transition="500" :gap="20">
         <Slide v-for="(slide, idx) in slides" :key="slide">
           <div class="carousel__item" @click="slideTo(idx)">
             <template v-if="checkExtension(slide) === 'jpg'">
               <img :src="getImageUrl(slide)" alt="" />
             </template>
             <template v-else>
-              <button>
-                <font-awesome-icon icon="fa-solid fa-play" />
-                <span>Play video</span>
-              </button>
+              <div class="video-container">
+                <img :src="getImageUrl('home-product-video.png')" alt="">
+                <span><font-awesome-icon icon="fa-solid fa-video" /></span>
+              </div>
             </template>
           </div>
         </Slide>
@@ -85,7 +71,7 @@
   </div>
 </template>
   
-  <script setup lang="ts">
+<script setup lang="ts">
 import BaseHeading from "../ui/BaseHeading.vue";
 import BaseButton from "../ui/BaseButton.vue";
 import BaseAvatar from "../ui/BaseAvatar.vue";
@@ -114,16 +100,18 @@ function slideTo(val: number) {
 }
 </script>
   
-  <style scoped lang="scss">
+<style scoped lang="scss">
 .home-product {
   margin-top: 40px;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 24px;
+
   @media (min-width: 768px) {
     flex-direction: row;
   }
+
   &__details {
     h4 {
       font-size: 16px;
@@ -133,18 +121,22 @@ function slideTo(val: number) {
       opacity: 0.75;
       margin: 20px 0;
     }
+
     h5 {
       font-size: 18px;
     }
+
     .details {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       max-width: 440px;
       margin: 16px 0;
+
       .detail {
         display: flex;
         gap: 12px;
+
         span {
           font-weight: 500;
           font-size: 16px;
@@ -154,12 +146,20 @@ function slideTo(val: number) {
         }
       }
     }
+
     .seller {
       border-top: 1px solid rgb(204, 204, 204);
-      padding-top: 32px;
       display: flex;
       gap: 16px;
-      align-items: center;
+      flex-direction: column;
+      padding-top: 8px;
+
+      @media(min-width:768px) {
+        flex-direction: row;
+        padding-top: 32px;
+        align-items: center;
+      }
+
       &__info {
         h6 {
           font-weight: 500;
@@ -170,24 +170,54 @@ function slideTo(val: number) {
       }
     }
   }
+
   &__gallery {
     max-width: 500px;
+
     .carousel__slide {
       border: 6px solid transparent;
     }
+
     #gallery {
       .carousel__item {
         img {
           height: 416px;
           width: 100%;
         }
+
       }
     }
+
     #thumbnails {
       .carousel__item {
         width: 100%;
         height: 100%;
         margin: 12px 0;
+
+        .video-container {
+          position: relative;
+          height: 100%;
+
+          span {
+            display: grid;
+            place-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, .5);
+            border-radius: 4px;
+
+            svg {
+              path {
+                fill: white;
+              }
+            }
+          }
+        }
+
         button {
           width: 100%;
           height: 100%;
@@ -201,14 +231,16 @@ function slideTo(val: number) {
           gap: 16px;
           font-size: 1.3rem;
         }
+
         img {
           width: 100%;
           height: 100%;
         }
       }
+
       .carousel__slide {
         &--active {
-          border: 6px solid $font-color;
+          border: 2px solid $font-color;
         }
       }
     }

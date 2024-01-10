@@ -79,10 +79,6 @@ function expandMenu() {
 
 <style lang="scss" scoped>
 nav {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
   height: fit-content;
   background: white;
   display: flex;
@@ -91,6 +87,9 @@ nav {
   z-index: 3;
   height: 60px;
   padding: 15px 20px;
+  max-width: 100vw;
+  position: relative;
+  z-index: 999;
   @media (min-width: 992px) {
     background: unset;
     justify-content: space-between;

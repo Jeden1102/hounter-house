@@ -5,19 +5,21 @@
     :width="imgSize"
     :height="imgSize"
     :class="variant"
+    loading="lazy"
   />
 </template>
 
 <script setup lang="ts">
 import { defineProps, computed } from "vue";
 
-function getImageUrl(url: string) {
-  return require(`@/assets/avatars/${url}`);
-}
 const props = defineProps<{
   variant: string;
   url: string;
 }>();
+
+function getImageUrl(url: string) {
+  return require(`@/assets/avatars/${url}`);
+}
 
 const imgSize = computed(() => {
   const maping = { sm: 30, md: 40, lg: 50 };

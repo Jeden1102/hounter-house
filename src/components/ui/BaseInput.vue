@@ -1,14 +1,8 @@
 <template>
   <div class="base-input__wrapper">
     <input type="text" placeholder="Search a place!" />
-    <BaseButton
-      url="#"
-      :variant="'success'"
-      :icon="'fa-solid fa-chevron-right'"
-      :iconFirst="false"
-      target="_self"
-      >Search</BaseButton
-    >
+    <BaseButton url="#" :variant="'success'" :icon="'fa-solid fa-chevron-right'" :iconFirst="false" target="_self">Search
+    </BaseButton>
   </div>
 </template>
 
@@ -21,6 +15,7 @@ import BaseButton from "./BaseButton.vue";
   &__wrapper {
     position: relative;
     width: fit-content;
+
     ::v-deep .base-btn {
       position: absolute;
       right: 8px;
@@ -35,6 +30,7 @@ import BaseButton from "./BaseButton.vue";
       height: 56px;
       border: 1px solid #e0e3eb;
       border-radius: 32px;
+
       &::placeholder {
         font-weight: 500;
         font-size: 0.875rem;

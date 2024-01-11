@@ -1,5 +1,5 @@
 [{
-        "img": "home-featured-1.png",
+        "img": "home-featured-1.webp",
         "badgeType": "success",
         "badgeIcon": "fas fa-fire",
         "badgeText": "Hot deal!",
@@ -12,7 +12,7 @@
         "category": "Apartment"
     },
     {
-        "img": "home-featured-2.png",
+        "img": "home-featured-2.webp",
         "badgeType": "primary",
         "badgeIcon": "fas fa-map-marker",
         "badgeText": "New",
@@ -25,7 +25,7 @@
         "category": "Apartment"
     },
     {
-        "img": "home-featured-3.png",
+        "img": "home-featured-3.webp",
         "badgeType": "success-light",
         "badgeIcon": "fas fa-money-bill",
         "badgeText": "Discount",
@@ -38,7 +38,7 @@
         "category": "Apartment"
     },
     {
-        "img": "home-featured-4.png",
+        "img": "home-featured-4.webp",
         "badgeType": "primary",
         "badgeIcon": "fas fa-bolt",
         "badgeText": "Urgent",
@@ -51,7 +51,7 @@
         "category": "Apartment"
     },
     {
-        "img": "home-featured-1.png",
+        "img": "home-featured-1.webp",
         "badgeType": "error",
         "badgeIcon": "fas fa-star",
         "badgeText": "Luxury",
@@ -64,7 +64,7 @@
         "category": "Villa"
     },
     {
-        "img": "home-featured-2.png",
+        "img": "home-featured-2.webp",
         "badgeType": "success",
         "badgeIcon": "fas fa-fire",
         "badgeText": "Hot deal!",
@@ -77,7 +77,7 @@
         "category": "Apartment"
     },
     {
-        "img": "home-featured-3.png",
+        "img": "home-featured-3.webp",
         "badgeType": "success-light",
         "badgeIcon": "fas fa-dollar-sign",
         "badgeText": "Sale!",
@@ -90,7 +90,7 @@
         "category": "House"
     },
     {
-        "img": "home-featured-4.png",
+        "img": "home-featured-4.webp",
         "badgeType": "primary",
         "badgeIcon": "fas fa-rocket",
         "badgeText": "New!",
@@ -103,7 +103,7 @@
         "category": "Villa"
     },
     {
-        "img": "home-featured-1.png",
+        "img": "home-featured-1.webp",
         "badgeType": "error",
         "badgeIcon": "fas fa-exclamation-triangle",
         "badgeText": "Urgent!",
@@ -116,7 +116,7 @@
         "category": "Apartment"
     },
     {
-        "img": "home-featured-2.png",
+        "img": "home-featured-2.webp",
         "badgeType": "success",
         "badgeIcon": "fas fa-heart",
         "badgeText": "Lovely!",

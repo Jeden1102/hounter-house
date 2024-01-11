@@ -5,7 +5,7 @@
       <p class="description">
         {{ offer.description }}
       </p>
-      <img :src="getImageUrl(offer.img)" alt="Home view" loading="lazy" />
+      <img width="488" height="416" :src="getImageUrl(offer.img)" alt="Home view" loading="lazy" />
     </div>
     <h4>{{ offer.title }}</h4>
     <p>{{ offer.price }}</p>
@@ -101,8 +101,6 @@ function getImageUrl(url: string) {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    &__details {}
   }
 }
 </style>

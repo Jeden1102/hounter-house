@@ -97,7 +97,6 @@ const filteredOffers = computed(() => {
     (offer) => offer.category === activeCategory.value
   );
 });
-const slides = 6;
 const activeCategory = ref("");
 function getButtonVariant(variant: string) {
   if (variant === activeCategory.value) {
@@ -118,7 +117,6 @@ onMounted(() => {
   axios
     .get("/offers.json")
     .then((res) => {
-      console.log(res);
       offers.value = res.data;
     })
     .catch((err) => {

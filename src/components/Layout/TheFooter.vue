@@ -2,23 +2,12 @@
     <div class="footer">
         <div class="footer-content">
             <div class="logo">
-                <img src="/path/to/your/logo.png" alt="Logo" />
+                <img width="100" height="30" src="@/assets/logo1.svg" alt="Site logo" loading="lazy" />
             </div>
             <div class="site-info">
-                <h3>Page name</h3>
+                <h3>Hounter house</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque odit similique dolorem facilis quam
                     tempora perferendis maiores numquam unde quis.</p>
-            </div>
-            <div class="social-media">
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i>
-                </a>
             </div>
         </div>
         <div class="copyright">
@@ -26,25 +15,28 @@
         </div>
     </div>
 </template>
-  
-<script setup lang="ts">
-import { defineProps } from 'vue';
-const props = defineProps([]);
-</script>
-  
-<style scoped>
+<style scoped lang="scss">
 .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+    color: black;
+    padding: 40px 10px;
+    -webkit-box-shadow: 0px -3px 47px -22px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px -3px 47px -22px rgba(66, 68, 90, 1);
+    box-shadow: 0px -3px 47px -22px rgba(66, 68, 90, 1);
+    margin-top: 40px;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    flex-direction: column;
+    gap: 12px;
+
+    @media(min-width:768px) {
+        flex-direction: row;
+        gap: 40px;
+    }
 }
 
 .logo img {
@@ -54,7 +46,6 @@ const props = defineProps([]);
 
 .site-info {
     flex-grow: 1;
-    margin: 0 20px;
 }
 
 .site-info h3 {

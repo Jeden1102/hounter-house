@@ -1,12 +1,13 @@
 <template>
   <nav>
     <router-link to="/">
-      <img src="@/assets/logo1.svg" alt="" />
+      <img width="115" height="36" src="@/assets/logo1.svg" alt="Page logo" loading="lazy"/>
     </router-link>
     <div class="nav-links">
       <button
         :class="[{ active: mobileMenuShow }, 'toggle']"
         @click="toggleMenu"
+        title="Toggle nav"
         v-if="windowWidth < 992"
       >
         <span>Explore</span>
@@ -27,6 +28,7 @@
             <button
               :class="[{ active: menuExpand }, 'menu-expand']"
               @click="expandMenu"
+              title="Expand menu"
             >
               <span>Property</span>
               <font-awesome-icon icon="fa-solid fa-chevron-down" />
@@ -61,17 +63,21 @@ import BaseButton from "../../components/ui/BaseButton.vue";
 let mobileMenuShow = ref(false || window.innerWidth > 992);
 let menuExpand = ref(false);
 let windowWidth = ref(window.innerWidth);
+
 function toggleMenu() {
   mobileMenuShow.value = !mobileMenuShow.value;
 }
+
 function watchWindowWidth() {
   window.addEventListener("resize", () => {
     windowWidth.value = window.innerWidth;
   });
 }
+
 onMounted(() => {
   watchWindowWidth();
 });
+
 function expandMenu() {
   menuExpand.value = !menuExpand.value;
 }

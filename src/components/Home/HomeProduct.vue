@@ -29,7 +29,7 @@
       <div class="seller">
         <BaseAvatar variant="lg" url="profile1.jpg" />
         <div class="seller__info">
-          <h6>Janko Chanowski</h6>
+          <span>Janko Chanowski</span>
           <p>Building manager</p>
         </div>
         <BaseButton variant="success">Contact now</BaseButton>
@@ -39,8 +39,8 @@
       <Carousel id="gallery" :items-to-show="1" v-model="currentSlide" :wrapAround="false" :transition="500" :gap="20">
         <Slide v-for="slide in slides" :key="slide">
           <div class="carousel__item">
-            <template v-if="checkExtension(slide) === 'jpg'">
-              <img :src="getImageUrl(slide)" alt="" />
+            <template v-if="checkExtension(slide) === 'webp'">
+              <img width="488" height="416" :src="getImageUrl(slide)" alt="House image" loading="lazy" />
             </template>
             <template v-else>
               <video height="416" autoplay muted loop>
@@ -50,17 +50,17 @@
           </div>
         </Slide>
       </Carousel>
-
       <Carousel id="thumbnails" :items-to-show="3" v-model="currentSlide" ref="carousel" :wrapAround="true"
         :transition="500" :gap="20">
         <Slide v-for="(slide, idx) in slides" :key="slide">
           <div class="carousel__item" @click="slideTo(idx)">
-            <template v-if="checkExtension(slide) === 'jpg'">
-              <img :src="getImageUrl(slide)" alt="" />
+            <template v-if="checkExtension(slide) === 'webp'">
+              <img width="154" height="154" :src="getImageUrl(slide)" alt="House picture thumbnail" loading="lazy" />
             </template>
             <template v-else>
               <div class="video-container">
-                <img :src="getImageUrl('home-product-video.png')" alt="">
+                <img width="154" height="154" :src="getImageUrl('home-product-video.webp')" alt="House picture thumbnail"
+                  loading="lazy">
                 <span><font-awesome-icon icon="fa-solid fa-video" /></span>
               </div>
             </template>
@@ -81,12 +81,12 @@ import { Carousel, Slide } from "vue3-carousel";
 import { ref } from "vue";
 const slides = [
   "home-product-0.mp4",
-  "home-product-1.jpg",
-  "home-product-2.jpg",
-  "home-product-3.jpg",
-  "home-product-4.jpg",
-  "home-product-5.jpg",
-  "home-product-6.jpg",
+  "home-product-1.webp",
+  "home-product-2.webp",
+  "home-product-3.webp",
+  "home-product-4.webp",
+  "home-product-5.webp",
+  "home-product-6.webp",
 ];
 function checkExtension(url: string) {
   return url.split(".")[1];
@@ -161,7 +161,7 @@ function slideTo(val: number) {
       }
 
       &__info {
-        h6 {
+        span {
           font-weight: 500;
           font-size: 14px;
           line-height: 24px;

@@ -1,53 +1,43 @@
 <template>
-  <a
-    :class="[
-      'base-btn',
-      variant,
-      { 'icon-first': iconFirst },
-      { 'icon-only': iconOnly },
-    ]"
-    v-if="url"
-    :type="type"
-    :href="url"
-    :target="target ? target : '_blank'"
-    @click="emitClick"
-  >
+  <a :class="[
+    'base-btn',
+    variant,
+    { 'icon-first': iconFirst },
+    { 'icon-only': iconOnly },
+  ]" v-if="url" :type="type" :href="url" :target="target ? target : '_blank'" @click="emitClick">
     <font-awesome-icon :icon="icon" />
-    <span><slot></slot></span>
+    <span>
+      <slot></slot>
+    </span>
   </a>
-  <router-link
-    :class="[
-      'base-btn',
-      variant,
-      { 'icon-first': iconFirst },
-      { 'icon-only': iconOnly },
-    ]"
-    v-if="component"
-    :to="{ name: component }"
-    @click="emitClick"
-  >
+  <router-link :class="[
+    'base-btn',
+    variant,
+    { 'icon-first': iconFirst },
+    { 'icon-only': iconOnly },
+  ]" v-if="component" :to="{ name: component }" @click="emitClick">
     <font-awesome-icon :icon="icon" />
-    <span><slot></slot></span>
+    <span>
+      <slot></slot>
+    </span>
   </router-link>
-  <button
-    :class="[
-      'base-btn',
-      variant,
-      { 'icon-first': iconFirst },
-      { 'icon-only': iconOnly },
-    ]"
-    v-if="!url && !component"
-    @click="emitClick"
-  >
+  <button title="Click button" :class="[
+    'base-btn',
+    variant,
+    { 'icon-first': iconFirst },
+    { 'icon-only': iconOnly },
+  ]" v-if="!url && !component" @click="emitClick">
     <font-awesome-icon :icon="icon" />
-    <span><slot></slot></span>
+    <span>
+      <slot></slot>
+    </span>
   </button>
 </template>
 
 <script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
 
-const props = defineProps<{
+defineProps<{
   variant?: string;
   active?: boolean;
   icon?: string;
@@ -85,39 +75,48 @@ const emitClick = () => {
   &.icon-first {
     flex-direction: row;
   }
+
   &.icon-only {
     gap: 0;
   }
+
   svg {
     width: 16px;
     height: 16px;
   }
+
   &:hover {
     opacity: 1;
     transform: translateY(-2px);
   }
+
   &.success-light {
     background: $light-green;
     color: $secondary-green;
   }
+
   &.success {
     background: $primary-green;
     color: white;
   }
+
   &.base {
     background: white;
     color: #888b97;
     border: 1px solid rgba(136, 139, 151, 0.4);
   }
+
   &.transparent {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
   }
+
   &.primary {
     color: #1d4ed8;
     background: #dbeafe;
   }
+
   &.error {
     background: #fee2e2;
     color: #ef4444;
